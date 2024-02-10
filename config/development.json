@@ -1,0 +1,42 @@
+{
+  "port": 2001,
+  "hostAddress": "localhost:2001",
+  "databaseHost": "localhost",
+  "databasePort": "27017",
+  "databaseName": "BOOK_STORE",
+  "jwtsecret": "nodejwt",
+  "jwtresetsecret": "nodejwt",
+ 
+  "swaggerDefinition": {
+    "info": {
+      "title": "BOOK_STORE ",
+      "version": "2.0",
+      "description": " API Docs"
+    },
+ 
+    "basePath": "/api/v1",
+    "securityDefinitions": {
+      "tokenauth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  }, 
+   "cloudinary": {
+    "cloud_name": "djghn6egw",
+    "api_key": "952591717761675",
+    "api_secret": "qRoq1QCR_2F2GKTNhI5V65rIZwU"
+  },
+  "nodemailer": {
+    "service": "gmail",
+    "user": "choreohritik52@gmail.com",
+    "pass": "yyiz rcej krin lgcl"
+  },
+  "sendGridKey": "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",
+  "sendInBlueKey": "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",
+  "sibApi": "1c2c213276da18b8d37b5a7683759c905afb5718ffe04de6aba3f05f0f56bef2-pI8lLCyRgZzR9fn1",
+  "projectId":"2DQYbpLriMtttDxE0rnwsDfpHHB",
+  "projectSecret":"9a286e29423b32f5c3519def68e57d30",
+  "CMC_APIKEY":"9b3fa184-d197-41d5-9f33-9f2c967dc037"
+}

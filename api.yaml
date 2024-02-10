@@ -1,0 +1,1033 @@
+ definitions:
+  securitySchemes:
+    tokenauth:
+      type: basic
+      description: bearer auth
+      name: Authorization
+      in: header
+    demouser:
+      type: basic
+  #-------------------------------------------------------------------
+  #---------------------------ADMIN----------------------------------
+  #-------------------------------------------------------------------
+  signup:
+    required:
+      - firstName
+      - lastName
+      - countryCode
+      - mobileNumber
+      - email
+      - password
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string 
+      mobileNumber:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      confirmPassword :
+        type: string
+
+  becomeAInfluencer:
+    required:
+      - name
+      - nickName
+      - categoryId
+      - instagramLink
+      - tikTokLink
+      - deviceName
+      - ipAddress
+    properties:
+      name:
+        type: string
+      nickName:
+        type: string
+      categoryId:
+        type: string
+      instagramLink:
+        type: string
+      tikTokLink:
+        type: string  
+      deviceName:
+        type: string
+      ipAddress:
+        type: string
+
+  addSocialLinkInArray:
+    required:
+      - instagramLink
+      - client_id
+      - client_secret
+      - grant_type
+      - redirectUri
+      - accessTokenInsta
+      - getInstaUserId
+      - accessTokenTikTok
+      - linkType
+      - tikTokLink  
+      - fb_exchange_token
+    properties:
+      instagramLink:
+        type: string
+      accessTokenInsta:
+        type: string
+      client_id:
+        type: string
+      client_secret:
+        type: string
+      getInstaUserId:
+        type: string
+      grant_type:
+        type: string
+      redirectUri:
+        type: string
+      fb_exchange_token:
+        type: string
+      accessTokenTikTok:
+        type: string
+      linkType:
+        type: string
+      tikTokLink:
+        type: string  
+
+  addSocialLinkInArray11:
+    required:
+      - instagramLink
+      - tikTokLink
+    properties:
+      instagramLink:
+        type: array
+        items:
+          type: object
+          properties:
+            link:
+              type: string
+              required: true
+            accessTokenInsta:
+              type: string
+              required: true
+      tikTokLink:
+        type: string    
+
+        
+  verifyOTP:
+    required:
+      - email
+      - otp
+    properties:
+      email:
+        type: string
+      otp:
+        type: integer
+
+
+  resendOTP:
+    required:
+      - countryCode
+      - mobileNumber
+    properties:
+      countryCode:
+        type: string
+      mobileNumber:
+        type: string
+
+
+  forgotPassword:
+    required:
+      - email
+    properties:
+      email:
+        type: string
+
+
+  resetPassword:
+    required:
+      - newPassword
+    properties:
+      newPassword:
+        type: string
+        
+
+  loginWithWallet:
+    required:
+      - walletAddress
+    properties:
+      walletAddress:
+        type: string
+   
+          
+
+  socialLogin:
+    required:
+      - socialId
+      - socialType
+      - countryCode
+      - mobileNumber
+      - email
+    properties:
+      socialId:
+        type: string
+      socialType:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      countryCode:
+        type: string
+      mobileNumber:
+        type: string
+      email:
+        type: string
+      deviceToken:
+        type: string
+ 
+
+
+  updateProfile:
+    properties:
+      userName:
+        type: string
+      name:
+        type: string
+      email: 
+        type: string 
+      bio: 
+        type: string
+      customUrl: 
+        type: string
+      twitterUsername: 
+        type: string
+      personalSite: 
+        type: string
+    
+
+    
+
+  updateAdminProfile:
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+      mobileNumber:
+        type: string 
+      bio:
+        type: string 
+      userName:
+        type: string
+   
+     
+  changePassword:
+    required:
+      - oldPassword
+      - newPassword
+    properties:
+      oldPassword:
+        type: string
+      newPassword: 
+        type: string
+
+
+  createPayment:
+    required:
+      - cardNumber
+      - expMonth
+      - expYear
+      - cvc
+    properties:
+      cardNumber:
+        type: string
+      expMonth: 
+        type: string
+      expYear: 
+        type: string
+      cvc: 
+        type: string
+
+
+  addStaticContent:
+    required:
+      - type
+      - title
+      - description
+    properties:
+      type:
+        type: string
+      title: 
+        type: string
+      description: 
+        type: string
+
+
+  editStaticContent:
+    required:
+      - _id
+      - title
+      - description
+    properties:
+      _id:
+        type: string
+      title: 
+        type: string
+      description: 
+        type: string
+
+
+
+
+
+  editFAQ:
+    required:
+      - _id
+      - question
+      - answer
+    properties:
+      _id:
+        type: string
+      question: 
+        type: string
+      answer: 
+        type: strings
+
+
+  cancelOrder:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+
+  cancelPhysicalOrder:
+    required:
+      - _id 
+    properties:
+      _id:
+        type: string
+      # quantity:
+      #   type: integer   
+
+
+  deleteUser:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+
+
+  deleteCategory:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+
+  deleteInfluencerCategory:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+
+
+  deleteFAQ:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string 
+
+
+  blockUnblockUser:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+  blocklistCategory:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+
+  blockUnblockInfluencer: 
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+
+  activeDeactiveCategory:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string    
+
+  activeDeactiveMedia:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string    
+
+
+            
+
+
+  blockUnblockNft:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+
+
+  twoFactorAuthentication:
+    required:
+      - userId
+    properties:
+      userId:
+        type: string
+      code:
+        type: string
+
+        
+
+  createNFT:
+    required:
+      - tokenId   
+    properties:
+      currentOwnerId: 
+        type: string
+      collectionId:
+        type: string
+      tokenId: 
+        type: string
+      tokenName: 
+        type: string
+      network:
+        type: string
+      mediaFile: 
+        type: string
+      coverImage: 
+        type: string
+      title: 
+        type: string
+      mediaId: 
+        type: string
+      uri: 
+        type: string
+      description: 
+        type: string
+      properties: 
+        type: string
+      alternativeTextForNFT: 
+        type: string
+      mediaType: 
+        type: string
+      royalties:
+        type: string
+      recipientWalletAddress:
+        type: string
+      recipientBackupWalletAddress:
+        type: string
+      itemCategory:
+        type: string
+      isGenerativeNft:
+        type: boolean 
+      physicalType: 
+        type: string 
+      deviceName:
+        type: string
+      ipAddress:
+        type: string
+
+
+
+  createNewNFT:
+    required:
+      - tokenId  
+      - mediaId 
+    properties:
+      currentOwnerId: 
+        type: string
+      collectionId:
+        type: string
+      tokenId: 
+        type: string
+      mediaId: 
+        type: string  
+      socialType:
+        type: string  
+      tokenName: 
+        type: string
+      network:
+        type: string
+      mediaFile: 
+        type: string
+      coverImage: 
+        type: string
+      title: 
+        type: string
+      uri: 
+        type: string
+      description: 
+        type: string
+      properties: 
+        type: string
+      alternativeTextForNFT: 
+        type: string
+      mediaType: 
+        type: string
+      royalties:
+        type: string
+      recipientWalletAddress:
+        type: string
+      recipientBackupWalletAddress:
+        type: string
+      itemCategory:
+        type: string
+      isGenerativeNft:
+        type: boolean 
+      physicalType: 
+        type: string 
+     
+
+
+  createPhysicalNft:
+    required:
+      - tokenId   
+    properties:
+      currentOwnerId: 
+        type: string
+      collectionId:
+        type: string
+      tokenId: 
+        type: string
+      tokenName: 
+        type: string
+      network:
+        type: string
+      mediaFile: 
+        type: string
+      coverImage: 
+        type: string
+      title: 
+        type: string
+      uri: 
+        type: string
+      description: 
+        type: string
+      properties: 
+        type: string
+      alternativeTextForNFT: 
+        type: string
+      mediaType: 
+        type: string
+      royalties:
+        type: string
+      recipientWalletAddress:
+        type: string
+      recipientBackupWalletAddress:
+        type: string
+      itemCategory:
+        type: string
+      isGenerativeNft:
+        type: boolean 
+      quantity:
+        type: integer  
+      physicalType: 
+        type: string 
+      deviceName:
+        type: string
+      ipAddress:
+        type: string
+    
+
+  editNFT:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+      tokenName: 
+        type: string
+      mediaFile: 
+        type: string
+      coverImage: 
+        type: string
+      itemCategory: 
+        type: array
+        items:
+          type: string
+      priceType: 
+        type: string
+      price: 
+        type: string
+      title: 
+        type: string
+      uri: 
+        type: string
+      description: 
+        type: string
+      royalties: 
+        type: string
+      properties: 
+        type: string
+      alternativeTextForNFT: 
+        type: string
+
+
+  editPhysicalNft:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+      tokenName: 
+        type: string
+      mediaFile: 
+        type: string
+      coverImage: 
+        type: string
+      itemCategory: 
+        type: array
+        items:
+          type: string
+      priceType: 
+        type: string
+      price: 
+        type: string
+      title: 
+        type: string
+      uri: 
+        type: string
+      description: 
+        type: string
+      royalties: 
+        type: string
+      properties: 
+        type: string
+      alternativeTextForNFT: 
+        type: string
+      quantity: 
+        type: integer   
+
+
+  createBook:
+    required: 
+    properties: 
+      title: 
+        type: string 
+      price: 
+        type: string 
+      description:
+        type: string
+
+  resalePhysicalOrder:
+    required:
+      - bookId
+    properties:
+      bookId:
+        type: string
+      title: 
+        type: string
+      details: 
+        type: string
+      time: 
+        type: string
+      startingBid: 
+        type: string
+      tokenName: 
+        type: string
+      description: 
+        type: string
+      royalties: 
+        type: string
+      startPrice: 
+        type: string
+      price: 
+        type: string
+      network:
+        type: string
+      coupounAddress: 
+        type: string
+      startTime: 
+        type: string
+      endTime: 
+        type: string
+      expiryTime: 
+        type: string
+      currentOwner: 
+        type: string
+      saleType:
+        type: string
+      mediaType: 
+        type: string 
+      quantity:
+        type: integer 
+
+
+
+        
+  
+  createPhysicalOrder:
+    required:
+      - nftId
+    properties:
+      nftId:
+        type: string
+      title: 
+        type: string
+      details: 
+        type: string
+      time: 
+        type: string
+      startingBid: 
+        type: string
+      tokenName: 
+        type: string
+      description: 
+        type: string
+      royalties: 
+        type: string
+      startPrice: 
+        type: string
+      price: 
+        type: string
+      network:
+        type: string
+      coupounAddress: 
+        type: string
+      startTime: 
+        type: string
+      endTime: 
+        type: string
+      expiryTime: 
+        type: string
+      currentOwner: 
+        type: string
+      saleType:
+        type: string
+      mediaType: 
+        type: string
+      quantity: 
+        type: integer   
+      physicalType: 
+        type: string   
+      brandId:
+        type: string
+
+
+
+  loginWithEmail:
+    required:
+      - email
+      - password
+    properties:
+      email:
+        type: string
+      password: 
+        type: string         
+  
+
+  editBook:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string 
+      title: 
+        type: string 
+      description: 
+        type: string 
+      price: 
+        type: string 
+      saleType: 
+        type: string 
+
+ 
+  allListOrder:
+    properties:
+      search: 
+        type: string
+      min: 
+        type: integer
+      max: 
+        type: integer
+      page: 
+        type: integer
+      limit: 
+        type: integer
+      mostVisited: 
+        type: boolean
+      mostFavorited:
+        type: boolean
+      mostSold: 
+        type: boolean
+      oldest: 
+        type: boolean
+      newest: 
+        type: boolean
+      endingSoon:
+        type: boolean
+      recentalyMinted:
+        type: boolean
+      recentalyTraded:
+        type: boolean
+      price:
+        type: string
+      network: 
+        type: array
+        items:
+          type: string 
+      itemCategory: 
+        type: array
+        items:
+          type: string
+      collection: 
+        type: array
+        items:
+          type: string
+      nftType:
+        type: string    
+
+
+
+  showActivity:
+    properties:
+      _id: 
+        type: string
+      search: 
+        type: string
+      page: 
+        type: integer
+      limit: 
+        type: integer
+      type: 
+        type: array
+        items:
+          type: string
+
+  
+  addAdmin:
+    required:
+      - email
+      - mobileNumber
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      mobileNumber:
+        type: string
+      walletAddress: 
+        type: string
+      gender:
+        type: string
+      password: 
+        type: string
+      profilePic: 
+        type: string
+      permissions:
+        type: object
+        properties:
+          reportManagement:
+            type: boolean
+            default: false
+          userManagement:
+            type: boolean
+            default: false
+          subadminManagement:
+            type: boolean
+            default: false
+          staticContentManagement:
+            type: boolean
+            default: false
+          contactUsManagement:
+            type: boolean
+            default: false
+          notificationManagement:
+            type: boolean
+            default: false
+
+
+  editAdmin:
+    required:
+      - subAdminId
+    properties:
+      subAdminId:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      mobileNumber:
+        type: string
+      gender:
+        type: string
+      password: 
+        type: string
+      profilePic: 
+        type: string
+      permissions:
+        type: object
+        properties:
+          reportManagement:
+            type: boolean
+            default: false
+          userManagement:
+            type: boolean
+            default: false
+          subadminManagement:
+            type: boolean
+            default: false
+          staticContentManagement:
+            type: boolean
+            default: false
+          contactUsManagement:
+            type: boolean
+            default: false
+          notificationManagement:
+            type: boolean
+            default: false
+
+  contactUs:
+    required:
+      - email
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+      subject:
+        type: string
+      message:
+        type: string
+
+  
+  addPressMediaContent:
+    required:
+      - type
+      - title
+    properties:
+      type:
+        type: string
+      title: 
+        type: string   
+      image: 
+        type: string   
+      description: 
+        type: string    
+      url:
+        type: string  
+
+  
+
+
+  editPressMedia:
+    required:
+      - _id
+      - type
+      - title
+    properties:
+      _id:
+        type: string
+      type:
+        type: string
+      title: 
+        type: string   
+      image: 
+        type: string   
+      description: 
+        type: string  
+      url:
+        type: string     
+
+  deletePressMedia:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string      
+
+
+  editCollection:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+      displayName: 
+        type: string
+      network: 
+        type: string
+      symbol: 
+        type: string
+      shortURL: 
+        type: string
+      collectionImage: 
+        type: string
+      bannerImage: 
+        type: string
+      description: 
+        type: string
+      categoryType: 
+        type: string
+      isPromoted:
+        type: boolean
+        default: false        
+
+
+  uploadImage:
+    required:
+      - image
+    properties:
+      image:
+        type: string
+
+        
+  createPhysicalNftupdated:
+    properties:
+      brandId:
+        type: string
+      mediaFile:
+        type: string
+      mediaType:
+        type: string
+      coverImage:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      uri:
+        type: string
+      quantity:
+        type: number
+      symbol:
+        type: string
+      tokenName: 
+        type: string
+      contractAddress:
+        type: string 
+      itemCategory:
+   
+  
+   
+
+
+
+
+        

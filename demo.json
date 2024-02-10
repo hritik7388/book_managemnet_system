@@ -1,0 +1,37 @@
+[
+    {
+        "$match": {
+            "sellStatus": "SOLD"
+        }
+    },
+    {
+        "$lookup": {
+            "from": "user", 
+            "localField": "userId",
+            "foreignField": "_id",
+            "as": "userDetails"
+        }
+    },
+    {
+        "$unwind": {
+            "path": "$userDetails",
+            "preserveNullAndEmptyArrays": true
+        }
+    },
+    {
+        "$group": {
+            "_id": "$userId",
+            "count": {
+                "$sum": 1
+            },
+            "userDetails": {
+                "$first": "$userDetails"
+            }
+        }
+    },
+    {
+        "$sort": {
+            "count": -1
+        }
+    }
+]
